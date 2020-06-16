@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "卡券出售",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/tab/wineTasting/wineTasting",
+    "pages/mine/memberInformation/memberInformation",
+    "pages/mine/couponsellImg/couponsellImg",
+    "pages/mine/couponSell/couponSell",
+    "pages/home/withdraw/withdraw",
+    "pages/tab/mine/mine",
+    "components/tabBar/tabBar",
+    "pages/tab/favorite/favorite",
+    "pages/mine/orderRecord/orderRecord",
+    "pages/wine/wineDetail/wineDetail",
+    "pages/mine/confirmOrder/confirmOrder",
+    "pages/mine/orderDetail/orderDetail",
+    "pages/mine/accountDetail/accountDetail",
+    "components/ordersBounced/ordersBounced",
+    "pages/greet/greet"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "券易通",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#333333",
+    "selectedColor": "#E7C778",
+    "backgroundColor": "#fff",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/tab/wineTasting/wineTasting",
+        "text": "卡券出售",
+        "iconPath": "/assets/images/tab/c.png",
+        "selectedIconPath": "/assets/images/tab/c1.png"
+      },
+      {
+        "pagePath": "pages/tab/favorite/favorite",
+        "text": "收藏",
+        "iconPath": "/assets/images/tab/a.png",
+        "selectedIconPath": "/assets/images/tab/a1.png"
+      },
+      {
+        "pagePath": "pages/tab/mine/mine",
+        "iconPath": "/assets/images/tab/b.png",
+        "selectedIconPath": "/assets/images/tab/b1.png",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,68 @@
+<view class="couponsellImg">
+
+  <view class="cardInfo">
+    <view class="item">
+      <view class="title">名称</view>
+      <view class="detail num_blod">
+        {{articleDetail.spmc}}
+      </view>
+    </view>
+    <view class="item">
+      <view class="title">价格</view>
+      <view class="detail num_blod">
+        ￥{{articleDetail.qyjg.hsj}}
+      </view>
+    </view>
+    <view class="item">
+      <view class="title">来源</view>
+      <view class="detail">
+        {{articleDetail.source}}
+      </view>
+      <!-- <input class="detail" placeholder="请输入来源" bindinput="changesource"> </input> -->
+    </view>
+  </view>
+
+
+  <!-- 卡券截图 -->
+  <view class="txtTitle">卡券截图</view>
+  <view class='cardBox'>
+    <view class='cardAdd mgt20' wx:for='{{cardList}}' wx:key='index'>
+      <view class="default_left 1" wx:if='{{item.showimg == ""}}' bindtap="chooseImageBtn" data-index="{{item.index}}">
+        <image src="/assets/images/roundAdd.png" class="roundAdd"></image>
+      </view>
+
+      <image class="default_left 2" src="{{item.showimg}}"  wx:if='{{item.showimg !== ""}}' bindtap="chooseImageBtn" data-index="{{item.index}}">
+      </image>
+
+      <view class="default_right">
+        <input type="digit" class="short_inp" placeholder="请输入兑换码" bindinput="changekh" data-index="{{item.index}}"></input>
+        <picker mode="date" value="{{item.yxqDate}}" data-index="{{item.index}}" start="{{ruleTime}}" bindchange="bindDateChange">
+          <view class="picker" wx:if='{{!item.yxqDate}}'>
+            请选择有效期
+          </view>
+          <view class="picker blackFs" wx:if='{{item.yxqDate}}'>
+            有效期至: {{item.yxqDate}}
+          </view>
+        </picker>
+
+      </view>
+      <view class="deteleArea" data-index="{{item.index}}" wx:if='{{item.index!==0}}' bindtap="deletePsd">
+        <image src="/assets/images/delete.png" class="deleteIcon"></image>
+      </view>
+    </view>
+
+    <view class="addPsd" bindtap="addCoupon">
+      <view class="addBox">
+        <image class="addIcon" src="/assets/images/add.png"></image>
+        <view class="addTxt">添加新卡密</view>
+      </view>
+    </view>
+
+  </view>
+  <view class="signupNode" style="margin-top:64rpx;">
+    <view class="nodeDetail">上传须知</view>
+    <view class="nodeDetail">{{articleDetail.remarks}}</view>
+  </view>
+  <view class="signUp" bindtap="singUp">上传</view>
+
+</view>

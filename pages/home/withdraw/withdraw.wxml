@@ -1,0 +1,36 @@
+<!--pages/home/withdraw/withdraw.wxml-->
+<view class="withdraw">
+
+  <view class="topCard">
+    <view class="number">{{money}}</view>
+    <view class="introduction">可提现收益(元)</view>
+    <!-- <view class="req" bindtap="request">申请</view> -->
+    <!-- <view class="circuit">申请 > 审核 > 结算至您的微信零钱</view> -->
+  </view>
+
+
+  <view class="statusList">
+
+    <view class="statusLi" wx:for='{{list}}' wx:key='id'>
+      <view class="item">
+        <view class="status_txt">申请单号:</view>
+        <view class="container">{{item.id}}</view>
+      </view>
+      <view class="item">
+       <view class="status_txt">申请时间:</view>
+        <view class="container">{{item.createDate}}</view>
+      </view>
+      <view class="item">
+       <view class="status_txt">提现金额:</view>
+        <view class="container">{{item.txje}}元</view>
+      </view>
+      <view class="item">
+       <view class="status_txt">状态:</view>
+        <view class="container wait" wx:if="{{item.zt == 1}}">审核中</view>
+        <view class="container success" wx:if="{{item.zt == 2}}">已转入微信钱包</view>
+      </view>
+
+    </view>
+  </view>
+
+</view>

@@ -1,0 +1,10 @@
+<view class='tabBar'>
+
+  <view class="tab" wx:for='{{list}}' wx:key='text' data-index="{{index}}" bindtap="toggleItem">
+    <image class="icon" wx:if='{{itemIndex == index}}' src="{{item.selectedicon}}"></image>
+    <image class="icon" wx:else src="{{item.icon}}"></image>
+    
+    <view class="text {{itemIndex == index ?'active':''}}" >{{item.text}}</view>
+
+  </view>
+</view>

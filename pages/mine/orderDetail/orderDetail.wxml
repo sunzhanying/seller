@@ -1,0 +1,55 @@
+<view class='orderDetail'>
+  <view class="gap"></view>
+  <view class="detail_top">
+
+    <view class="line">
+      <view class="leftTxt">名称</view>
+      <view class="detailBox">
+        星巴克大杯
+      </view>
+    </view>
+    <view class="line">
+      <view class="leftTxt">价格</view>
+      <view class="detailBox">
+        ￥15
+      </view>
+    </view>
+    <view class="line">
+      <view class="leftTxt">数量</view>
+      <view class="detailBox">
+        2
+      </view>
+    </view>
+  </view>
+
+  <view class="cardTicket">
+    <view class="title">卡券</view>
+    <view class="detailList">
+
+      <view class="item">
+        <image class="productImg" src="/assets/images/card.png"> </image>
+        <view class="productInfo">
+          <view class="itemInfo">卡号:11111</view>
+          <view class="itemInfo">卡号:11111</view>
+          <view class="itemInfo">卡号:11111</view>
+        </view>
+        <view class="line1"></view>
+      </view>
+
+      <view class="item">
+        <image class="productImg" src="/assets/images/card.png"> </image>
+        <view class="productInfo">
+          <view class="itemInfo">卡号:11111</view>
+          <view class="itemInfo">卡号:11111</view>
+          <view class="itemInfo">卡号:11111</view>
+        </view>
+        <view class="line1"></view>
+      </view>
+
+    </view>
+
+  </view>
+  <view class="useLegend">使用说明
+    <view class="legengDetail">ssssssssssssssssssssssssssssssss</view>
+  </view>
+</view>

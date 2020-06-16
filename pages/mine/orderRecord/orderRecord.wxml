@@ -1,0 +1,102 @@
+<!--pages/mine/orderRecord/orderRecord.wxml-->
+<view class='container'>
+  <!-- 顶部-->
+  <view  class='commet_tab'>
+    <view wx:for='{{BusinessTab}}' wx:key='*this' data-index='{{index}}' data-type='{{item.type}}' class="{{item.type==types?'commet_tab_c':''}}" bindtap='tabClick'>{{item.tit}}</view>
+  </view>
+
+  <view>
+
+    <view class="toggle_list" wx:if='{{types == 1}}'>
+      <view class="boxCard" wx:for='{{yhqList}}' wx:key='*this' data-id="{{item.id}}">
+        <view class="card_img_box">
+          <image class="card_img_box" src="{{item.spXx.img}}"></image>
+        </view>
+        <view class="card_info">
+          <view class="card_title">{{item.spXx.spmc}}</view>
+          <view class="amountNumber">数量{{item.count}}</view>
+          <view class="price">
+            <view class="price_number">￥{{item.qyjg.hsj}}</view>
+            <view class="submitTime">提交时间：{{item.qyjg.createDate}}</view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+
+    <view class="toggle_list" wx:if='{{types == 2}}'>
+       <view class="boxCard" wx:for='{{yhqList}}' wx:key='*this' data-id="{{item.id}}">
+        <view class="card_img_box">
+          <image class="card_img_box" src="{{item.spXx.img}}"></image>
+        </view>
+        <view class="card_info">
+          <view class="card_title">{{item.spXx.spmc}}</view>
+          <view class="amountNumber">数量{{item.count}}</view>
+          <view class="price">
+            <view class="price_number">￥{{item.qyjg.hsj}}</view>
+            <view class="submitTime">提交时间：{{item.qyjg.createDate}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="toggle_list" wx:if='{{types == 3}}'>
+      <view class="soldCard" wx:for='{{yhqList}}' wx:key='*this' data-id="{{item.id}}">
+
+        <view class="sold_card_top">
+
+          <view class="popICon">
+            <image class="popICon" src="{{item.khXx.wxtx}}"></image>
+          </view>
+
+          <view class="popName">{{item.khXx.wxnc}}</view>
+          <view class="end">已结算</view>
+          <!-- <view class="noEnd">已结算</view> -->
+        </view>
+
+        <view class="sold_card_bottom">
+          <view class="orderCode">订单编号：{{item.orderId}}</view>
+
+          <view class="orderInfo">
+            <view class="infoLeft">
+              <image class="infoLeft" src="{{item.spXx.img}}"></image>
+            </view>
+            <view class="infoRight">
+              <view class="orderTitle">{{item.spXx.spmc}}</view>
+              <view class="order_price">￥{{item.order.hsj}}</view>
+              <view class="amount">×{{item.order.sl}}</view>
+            </view>
+          </view>
+
+          <view class="income">直接收益：￥{{item.order.hsj*item.order.sl}}（订单总价￥{{item.order.scj*item.order.sl}}）</view>
+        </view>
+
+      </view>
+    </view>
+    <view class="toggle_list" wx:if='{{types == 4}}'>
+    <!-- 未做 -->
+      <view class="payed"  wx:for='{{yhqList}}' wx:key='*this' data-id="{{item.id}}">
+        <view class="sold_card_bottom">
+          <view class="payedCode">订单编号：{{item.spXx.id}}</view>
+
+          <view class="payedInfo">
+            <view class="payedinfoLeft">
+              <image class="payedinfoLeft" src="/assets/images/Mask.png"></image>
+            </view>
+            <view class="payedinfoRight">
+              <view class="payedTitle">{{item.spXx.spmc}}</view>
+              <view class="password" wx:if='{{item.spXx.type == 1}}'>卡密</view>
+              <view class="password" wx:if='{{item.spXx.type == 2}}'>卡号/卡密</view>
+              <view class="password" wx:if='{{item.spXx.type == 3}}'>兑换码</view>
+              <view class="payed_price">￥</view>
+              <view class="amount">×3</view>
+            </view>
+          </view>
+
+          <view class="payed_income">直接收益：￥10.00（订单总价￥71）</view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+  <!-- 顶部结束 -->
+</view>

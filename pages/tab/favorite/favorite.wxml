@@ -1,0 +1,31 @@
+<!--pages/tab/favorite/favorite.wxml-->
+<view class='height_100 bgc_F2F2F2 pad-20'>
+
+  <view class="favorite_li" bindtap="SignUpPsd" wx:for='{{list}}' wx:key='id' data-id="{{item.spId}}">
+    <view class="left_icon">
+      <image class="left_icon" src="{{item.spXx.img}}"></image>
+    </view>
+
+    <view class="txt_container">
+      <view class="txt_first">{{item.spXx.spmc}}</view>
+      <view class="txt_second">
+        <view class="txt_second_left" wx:if='{{item.spXx.type == 1}}'>卡密</view>
+        <view class="txt_second_left" wx:if='{{item.spXx.type == 2}}'>卡号+卡密</view>
+        <view class="txt_second_left" wx:if='{{item.spXx.type == 3}}'>完整截图</view>
+        <view class="txt_second_right">成交量{{item.spXx.cjl}}</view>
+
+      </view>
+
+      <view class="txt_third">
+        <view class="money">￥{{item.spXx.qyjg.hsj}}</view>
+        <view class="heart">
+        <image class="heart" src="/assets/images/favorite/heart.png" data-id="{{item.spId}}" catchtap="collect"></image>
+        </view>
+      </view>
+
+    </view>
+
+  </view>
+  <view class="nofavorite" wx:if="{{list.length <1}}">没有更多收藏</view>
+
+</view>

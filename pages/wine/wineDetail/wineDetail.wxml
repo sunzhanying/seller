@@ -1,0 +1,107 @@
+<import src="/wxParse/wxParse.wxml" />
+<!-- <wxs module="filters" src="../../../filters/filter.wxs"></wxs> -->
+<view>
+
+    <view class='txt_center'>
+        <image class='wine_detail_banner' src='{{goodsDetail.imgBig}}'></image>
+    </view>
+    <view class='width_auto'>
+        <view class='wine_detail_txt_pic'>￥{{goodsDetail.spjg}}</view>
+        <view class='wine_detail_txt_title'>{{goodsDetail.spmc}}</view>
+        <view class='wine_detail_txt_subtitle'>{{goodsDetail.spfmc}}1111</view>
+        <view class="wine_detail_inventory">库存100/成交20</view>
+        <!-- <view class='wine_detail_txt_year'>
+            <text class='mar_right20' wx:for="{{goodsDetail.tagList}}" wx:key="*this">{{item.name}}</text>
+        </view> -->
+        <!-- <view class='wine_detail_txt_shipping'>20公里以内包配送（黑猫快递30元/斤）</view> -->
+    </view>
+    <view class='clearance_box'></view>
+    <view class='width_auto pad_bottom'>
+        <view class='por_rel wine_detail_title_box'>
+        <image class='wine_detail_rule' src='/assets/images/wine_detail_rule.png'></image>
+        <view class='wine_detail_title'>图文详情</view>
+        </view>
+
+        <!-- 富文本 -->
+        <view class='content'>
+            <view class='' wx:if="{{introduce}}">
+                <text>{{introduce}}</text>
+            </view>
+            <view class=''>
+                <template is="wxParse" data="{{wxParseData:introducetext.nodes}}" />
+            </view>
+        </view>
+    </view>
+
+    <view class='footer_bottom bg_fff' wx:if="{{addOrderaddOrder}}">
+        <!-- <view class='footer_bottom_go' bindtap='goHomeTap'>
+            <image class='go_home_icon' src='/assets/images/go_home_icon.png'></image>
+            <view>首页</view>
+        </view>
+
+        <form bindsubmit='message' report-submit="true" wx:if="{{addActiveDetail.dateStatus != '2'}}">
+            <button class='wine_detail_share' open-type="share" form-type='submit'>
+                <view class=' '>分享好友</view>
+            </button>
+        </form>
+        <view class='wine_detail_share' bindtap='shareTap'>生成海报</view>
+        <view class='wine_detail_buy_btn bg_333 colorfff wine_shopping' data-name="1" wx:if="{{wxnc}}" bindtap='shoppingOrderBtn'>
+            加入购物车
+        </view>
+         <button class='wine_detail_buy_btn bg_333 colorfff wine_shopping' wx:else open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="shoppingOrderBtn">
+            加入购物车
+        </button>
+        <view class='wine_detail_buy_btn' data-name="1"  wx:if="{{wxnc}}" bindtap='payOrderBtn'>
+            立即购买
+        </view> 
+        <button class='wine_detail_buy_btn' wx:else open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="payOrderBtn">
+            立即购买
+        </button>  -->
+        <view class='btn_E7C778 ' data-name="1"  wx:if="{{wxnc}}" bindtap='payOrderBtn'>
+            立即购买
+        </view> 
+        <button class='btn_E7C778' wx:else open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="payOrderBtn">
+            立即购买
+        </button>
+
+    </view>
+
+    <form wx:else>
+        <!-- price  商城价格
+            cnventory  库存
+            numData     购买数量
+            addNum    添加数量方法
+            reductionNum   减少数量方法
+            cancelOrder    取消方法
+         -->
+         <!-- 立即购买 -->
+        <ordersBounced wx:if="{{isOrder}}" price='{{goodsDetail.spjg}}' title="{{goodsDetail.spmc}}" cnventory='{{goodsDetail.kc}}' numData='{{numData}}' ordersImage="{{goodsDetail.imgBig}}" bind:addNum="addNum" bq="{{goodsDetail.bqList}}" bind:reductionNum="reductionNum" bind:cancelOrder="onCancel" bind:wxPay="onWxPay" bind:orderClose="wineClose"></ordersBounced>
+        
+        <!-- 加入购物车 -->
+        <!-- <shoppingBounced wx:else price='{{goodsDetail.spjg}}' cnventory='{{goodsDetail.kc}}' numData='{{numShoppingData}}' ordersImage="{{goodsDetail.imgBig}}" bind:addNum="shoppingAddNum" bq="{{goodsDetail.bqList}}" bind:reductionNum="shoppingReductionNum" bind:cancelOrder="onCancel" bind:wxPay="onShopping" bind:orderClose="wineClose"></shoppingBounced> -->
+    </form>
+
+    <!-- 
+    shareUrl   商品图片
+    title      商品主标题
+    shareContent   商品副标题
+    qrcode          二维码图片
+    shareLabel      标签
+
+    shareContent   :   introduceContent
+     -->
+    
+
+    <shareSave id="camvasShare" shareUrl="{{shareUrl}}" year="2019" moth="{{moth}}" day='{{day}}' title='{{goodsDetail.spmc}}' shareContent='{{goodsDetail.remarks}}' qrcode='{{qrcode}}' shareLabel='{{goodsDetail.bqList}}'
+     canvasWidth='{{canvasWidth}}' canvasHeight='{{canvasHeight}}' bind:saveImageTap="saveImageBtn"></shareSave>
+
+    <!-- <view class='share_alert' hidden='{{!isSharing}}'>
+        <view class='alert_container'>
+            <canvas canvas-id="myCanvas"  style="width:540rpx;height:776rpx;" />
+        </view>
+        <view class='alert_close'>
+            <image src='/assets/images/share_cancel.png' bindtap='closeAlertTap'></image>
+            <image src='/assets/images/share_download.png' bindtap='saveImageTap'></image>
+        </view>
+    </view> -->
+</view>

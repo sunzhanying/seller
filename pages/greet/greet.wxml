@@ -1,0 +1,4 @@
+<view class='greet'>
+
+<button bindtap="Judge">点击判断</button>
+</view>

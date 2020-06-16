@@ -1,0 +1,90 @@
+<!--pages/tab/mine/mine.wxml-->
+<view class='height_100 bg_f8f8f8'>
+<!-- 用户端 -->
+  <view  class='mine_banner'>
+    <view class="mine_scroll_box mine_banner_img">
+      <image class='mine_bg' src='/assets/images/mine_bg.png'></image>
+
+    </view>
+    <view class='mine_user_info'>
+
+    	<view class='flex_items_center'>
+					<image class='head_portrait_img' src='{{wxtx ? wxtx:"/assets/images/head_portrait.png"}}'></image>
+					<view class='colorfff size28' wx:if="{{wxnc}}">{{wxnc}}</view>
+				<button class='head_portrait_info' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">
+					<view class='colorfff size32' wx:if="{{!wxnc}}">点击登录账户</view>
+				</button>
+
+			</view>
+
+      <view class='mine_nav_box'>
+        <view class="mine_nav_top">
+          <view class="top_txt">
+            累计收益
+          </view>
+          <view class="top_money">{{ydzsy+ktxsy}}</view>
+        </view>
+
+        <view class="mine_nav_bottom">
+
+          <view class="btn_extract">
+            <view class="btm_txt">已到账收益</view>
+            <view class="btm_money">{{ydzsy}}</view>
+          </view>
+          <view class="line"></view>
+          <view class="btn_extract" >
+            <view class="btm_txt">可提现收益</view>
+            <view class="btm_money">{{ktxsy}}</view>
+          </view>
+        </view>
+
+      </view>
+      <view class="info_list" bindtap="AllDetail">
+
+        <view class="info_li" wx:for='{{navList}}' wx:key='item' data-index="{{item.index}}" bindtap="jumpDetail">
+          <view class="info_li_math">{{item.math}}</view>
+          <view class="info_li_txt">{{item.title}}</view>
+        </view>
+      </view>
+      <view class='mine_list_box'>
+        <!-- 提现 -->
+        <navigator url='/pages/home/withdraw/withdraw' hover-class='none' class='mine_list flex_items_center'>
+          <view>
+            <image class="contact_service_img" src="/assets/images/withdraw_deposit_icon.png"></image>
+          </view>
+          <view class="flex_center mine_list_li border_bottom">
+            <view>立即提现</view>
+            <view>
+              <image class='arrow_icon' src='/assets/images/arrow_icon.png'></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator url='' hover-class='none' class='mine_list flex_items_center'>
+          <view>
+            <image class="contact_service_img" src="/assets/images/contact_service_icon.png"></image>
+          </view>
+          <view class="flex_center mine_list_li border_bottom">
+            <view>联系客服</view>
+            <view>
+              <image class='arrow_icon' src='/assets/images/arrow_icon.png'></image>
+            </view>
+          </view>
+        </navigator>
+
+        <navigator hover-class='none' url='' class='mine_list flex_items_center'>
+          <view>
+            <image class="contact_service_img" src="/assets/images/about_us_icon.png"></image>
+          </view>
+          <view class="flex_center mine_list_li">
+            <view>关于我们</view>
+            <view>
+              <image class='arrow_icon' src='/assets/images/arrow_icon.png'></image>
+            </view>
+          </view>
+        </navigator>
+
+      </view>
+    </view>
+  </view>
+
+</view>
